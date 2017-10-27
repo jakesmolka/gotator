@@ -15,8 +15,8 @@ type Client struct {
 	httpClient *http.Client
 }
 
-// StrikeSpan contains begin and end position of strike's text
-type WorkSpan struct {
+// WordSpan contains begin and end position of strike's text
+type WordSpan struct {
 	Begin int `json:"begin"`
 	End   int `json:"end"`
 }
@@ -25,7 +25,7 @@ type WorkSpan struct {
 type Annotation struct {
 	// Type, i.e. Gene, Disease, Chemical, Species, Mutation.
 	Obj  string   `json:"obj"`
-	Span WorkSpan `json:"span"`
+	Span WordSpan `json:"span"`
 }
 
 // Article wraps whole response body
@@ -56,6 +56,7 @@ func (c *Client) GetAllAnnotations(id string) (*Article, error) {
 	if err != nil {
 		return nil, err
 	}
+	//log.Printf("Gotator: http get: %v", u.String())
 	req, err := http.NewRequest("GET", u.String(), nil)
 	if err != nil {
 		return nil, err

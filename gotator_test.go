@@ -46,6 +46,10 @@ var gAACases = []getAllAnnotationsTest{
 		"https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/RESTful/tmTool.cgi",
 		"",
 		[]byte(""),
+	}, { // valid id, no result because pubtator did not annotate it yet (as of 2017-10-27)
+		"https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/RESTful/tmTool.cgi",
+		"28366679",
+		[]byte(""),
 	}, { // valid id, valid result
 		"https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/RESTful/tmTool.cgi",
 		"19894120",
